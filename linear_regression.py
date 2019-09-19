@@ -16,6 +16,7 @@ def simulate_data(nobs, nbetas):
     """
 
     y = np.random.normal(0, 1, nobs)
+    beta = np.random.normal()
     X = np.random.normal()
 
     pass
