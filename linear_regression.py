@@ -11,8 +11,9 @@ def simulate_data(nobs, nbeta):
     Simulates data for testing linear_regression models.
     INPUT
         nobs (int) the number of observations in the dataset
+        nbeta (int) the number of covariates in the true simulated
     RETURNS
-        data (dict) contains X, y, and beta vectors.
+        simulated_data (dict) contains X, y, and beta vectors.
     """
 
     # Generate X data (from multivariate normal)
@@ -32,7 +33,7 @@ def simulate_data(nobs, nbeta):
 
     return simulated_data
 
-def compare_models():
+def compare_models(X, y):
     """
     Compares output from different implementations of OLS.
     INPUT
@@ -41,7 +42,7 @@ def compare_models():
     RETURNS
         results (pandas.DataFrame) of estimated beta coefficients
     """
-    pass
+
 
 
 def load_hospital_data():
