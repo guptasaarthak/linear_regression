@@ -6,7 +6,7 @@ from sklearn.linear_model import LinearRegression
 import statsmodels.api as sm
 
 
-def simulate_data(nobs):
+def simulate_data(nobs, nbetas):
     """
     Simulates data for testing linear_regression models.
     INPUT
@@ -14,6 +14,10 @@ def simulate_data(nobs):
     RETURNS
         data (dict) contains X, y, and beta vectors.
     """
+
+    y = np.random.normal(0, 1, nobs)
+    X = np.random.normal()
+
     pass
 
 
