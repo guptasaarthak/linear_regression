@@ -6,18 +6,35 @@ from sklearn.linear_model import LinearRegression
 import statsmodels.api as sm
 
 
-def simulate_data(nobs):
+def simulate_data(nobs, nbeta):
     """
     Simulates data for testing linear_regression models.
     INPUT
         nobs (int) the number of observations in the dataset
+        nbeta (int) the number of covariates in the true simulated
     RETURNS
-        data (dict) contains X, y, and beta vectors.
+        simulated_data (dict) contains X, y, and beta vectors.
     """
-    pass
 
+    # Generate X data (from multivariate normal)
+    X = np.random.normal(0, 1, (nobs, nbeta))
+    X[:,0] = np.ones(nobs)
+    # Generate betas
+    beta = np.random.normal(0, 5, nbeta)
+    # Add idiosyncratic shock
+    eps = np.random.normal(0, 1, nobs)
 
-def compare_models():
+    # Create y from Y = XB + eps
+    y = X.dot(beta) + eps
+
+    # Store results as dictionary
+    simulated_data = {"X": X,
+                      "y": y,
+                      "beta": beta}
+
+    return simulated_data
+
+def compare_models(X, y):
     """
     Compares output from different implementations of OLS.
     INPUT
@@ -26,7 +43,7 @@ def compare_models():
     RETURNS
         results (pandas.DataFrame) of estimated beta coefficients
     """
-    pass
+
 
 
 def load_hospital_data():
