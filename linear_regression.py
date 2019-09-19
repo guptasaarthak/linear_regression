@@ -18,6 +18,7 @@ def simulate_data(nobs, nbeta):
 
     # Generate X data (from multivariate normal)
     X = np.random.normal(0, 1, (nobs, nbeta))
+    X[:,0] = np.ones(nobs)
     # Generate betas
     beta = np.random.normal(0, 5, nbeta)
     # Add idiosyncratic shock
