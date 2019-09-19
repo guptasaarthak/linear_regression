@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import statsmodels.api as sm
+import os
 
 
 def simulate_data(nobs, nbeta):
@@ -43,6 +44,8 @@ def compare_models(X, y):
     RETURNS
         results (pandas.DataFrame) of estimated beta coefficients
     """
+    
+    
 
 
 
@@ -54,7 +57,10 @@ def load_hospital_data():
     RETURNS
         clean_df (pandas.DataFrame) containing the cleaned and formatted dataset for regression
     """
-    pass
+    data_dir = os.getcwd()
+    HospitalData = pd.readcsv(data_dir + "/hospital_charge_sample.csv")
+    
+    return(HospitalData)
 
 
 def prepare_data():
