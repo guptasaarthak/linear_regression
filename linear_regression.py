@@ -6,7 +6,7 @@ from sklearn.linear_model import LinearRegression
 import statsmodels.api as sm
 
 
-def simulate_data(nobs, nbetas):
+def simulate_data(nobs, nbeta):
     """
     Simulates data for testing linear_regression models.
     INPUT
@@ -15,12 +15,22 @@ def simulate_data(nobs, nbetas):
         data (dict) contains X, y, and beta vectors.
     """
 
-    y = np.random.normal(0, 1, nobs)
-    beta = np.random.normal()
-    X = np.random.normal()
+    # Generate X data (from multivariate normal)
+    X = np.random.normal(0, 1, (nobs, nbeta))
+    # Generate betas
+    beta = np.random.normal(0, 5, nbeta)
+    # Add idiosyncratic shock
+    eps = np.random.normal(0, 1, nobs)
 
-    pass
+    # Create y from Y = XB + eps
+    y = X.dot(beta) + eps
 
+    # Store results as dictionary
+    simulated_data = {"X": X,
+                      "y": y,
+                      "beta": beta}
+
+    return simulated_data
 
 def compare_models():
     """
